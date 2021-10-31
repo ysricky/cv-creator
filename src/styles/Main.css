@@ -1,0 +1,29 @@
+.form-section {
+  margin: 1.5rem 0;
+  width: 800px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  border-radius: 10px;
+}
+
+.general-info,
+.education,
+.experience {
+  height: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+h3 {
+  color: var(--pink);
+  margin-top: 15px;
+}
+
+input {
+  border: 1px solid #c9c9c9;
+  padding: 0.3rem;
+  margin: 0.7rem;
+  border-radius: 5px;
+}
