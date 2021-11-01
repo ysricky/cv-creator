@@ -16,13 +16,17 @@ class General extends Component {
     return (
       <section className="general-info">
         <h3>Personal Information</h3>
-        <input
-          type="text"
-          defaultValue={this.state.firstName}
-          onChange={this.updateFirstName}
-          id="first-name"
-          placeholder="First name"
-        />
+        {this.props.mode === 'Preview' ? (
+          <p>{this.state.firstName}</p>
+        ) : (
+          <input
+            type="text"
+            defaultValue={this.state.firstName}
+            onChange={this.updateFirstName}
+            id="first-name"
+            placeholder="First name"
+          />
+        )}
         <input type="text" id="last-name" placeholder="Last name" />
         <input type="email" id="email" placeholder="Your email" />
         <input type="text" id="phone" placeholder="Your phone Number" />

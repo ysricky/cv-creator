@@ -8,7 +8,9 @@ class EditButton extends Component {
 
   render() {
     return (
-      <button onClick={this.props.buttonClicked}>{this.props.mode}</button>
+      <button onClick={this.props.buttonClicked}>
+        {this.props.mode === 'Preview' ? 'Edit' : 'Preview'}
+      </button>
     );
   }
 }
