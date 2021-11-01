@@ -1,29 +1,32 @@
 import { Component } from 'react';
 import '../styles/Main.css';
+import EditButton from './EditButton';
+import General from './General';
+import Education from './Education';
+import Experience from './Experience';
 
 class Main extends Component {
+  constructor() {
+    super();
+    this.state = {
+      mode: 'Preview',
+    };
+    this.changeMode = this.changeMode.bind(this);
+  }
+
+  changeMode() {
+    this.state.mode === 'Preview'
+      ? this.setState({ mode: 'Edit' })
+      : this.setState({ mode: 'Preview' });
+  }
+
   render() {
     return (
-      <div className="form-section">
-        <section className="general-info">
-          <h3>Personal Information</h3>
-          <input type="text" id="first-name" placeholder="First name" />
-          <input type="text" id="last-name" placeholder="Last name" />
-          <input type="email" id="email" placeholder="Your email" />
-          <input type="text" id="phone" placeholder="Your phone Number" />
-        </section>
-        <section className="education">
-          <h3>Education</h3>
-          <input type="text" id="name" placeholder="Your name" />
-          <input type="email" id="email" placeholder="Your email" />
-          <input type="text" id="phone" placeholder="Phone Number" />
-        </section>
-        <section className="experience">
-          <h3>Experience</h3>
-          <input type="text" id="name" placeholder="Your name" />
-          <input type="email" id="email" placeholder="Your email" />
-          <input type="text" id="phone" placeholder="Phone Number" />
-        </section>
+      <div className="main">
+        <EditButton buttonClicked={this.changeMode} mode={this.state.mode} />
+        <General mode={this.state.mode} />
+        <Education mode={this.state.mode} />
+        <Experience mode={this.state.mode} />
       </div>
     );
   }

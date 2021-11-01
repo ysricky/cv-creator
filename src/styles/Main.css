@@ -1,4 +1,4 @@
-.form-section {
+.main {
   margin: 1.5rem 0;
   width: 800px;
   background-color: #f9f9f9;
@@ -7,10 +7,27 @@
   border-radius: 10px;
 }
 
+button {
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+  padding: 0.5rem 2rem;
+  border: 1px solid var(--pink);
+  border-radius: 5px;
+  color: var(--pink);
+  background-color: #f8f8ff;
+  text-transform: uppercase;
+  transition: all 0.39s ease;
+}
+
+button:hover {
+  background-color: var(--pink);
+  color: #f8f8ff;
+}
+
 .general-info,
 .education,
 .experience {
-  height: 35%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
