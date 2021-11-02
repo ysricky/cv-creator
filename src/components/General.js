@@ -4,12 +4,21 @@ class General extends Component {
   constructor(props) {
     super(props);
     this.props = props;
-    this.state = { firstName: '', lastName: null, email: null, phone: null };
-    this.updateFirstName = this.updateFirstName.bind(this);
+    this.state = {
+      fullName: 'Your full name',
+      email: 'Your email',
+      phone: null,
+    };
+    this.updateFullName = this.updateFullName.bind(this);
+    this.updateEmail = this.updateEmail.bind(this);
   }
 
-  updateFirstName(event) {
-    this.setState({ firstName: event.target.value });
+  updateFullName(event) {
+    this.setState({ fullName: event.target.value });
+  }
+
+  updateEmail(event) {
+    this.setState({ email: event.target.value });
   }
 
   render() {
@@ -17,18 +26,27 @@ class General extends Component {
       <section className="general-info">
         <h3>Personal Information</h3>
         {this.props.mode === 'Preview' ? (
-          <p>{this.state.firstName}</p>
+          <p>{this.state.fullName}</p>
         ) : (
           <input
             type="text"
-            defaultValue={this.state.firstName}
-            onChange={this.updateFirstName}
-            id="first-name"
-            placeholder="First name"
+            defaultValue={this.state.fullName}
+            onChange={this.updateFullName}
+            id="full-name"
+            placeholder="Your full name"
           />
         )}
-        <input type="text" id="last-name" placeholder="Last name" />
-        <input type="email" id="email" placeholder="Your email" />
+        {this.props.mode === 'Preview' ? (
+          <p>{this.state.email}</p>
+        ) : (
+          <input
+            type="email"
+            defaultValue={this.state.email}
+            onChange={this.updateEmail}
+            id="email"
+            placeholder="Your email"
+          />
+        )}
         <input type="text" id="phone" placeholder="Your phone Number" />
       </section>
     );
